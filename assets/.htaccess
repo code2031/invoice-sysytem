@@ -1,0 +1,142 @@
+#Redirect 301 / http://gtechhost.com/omenka_mag
+
+
+
+#increase performance by disabling allowoverride
+
+#AllowOverride None
+
+
+
+# pass the default character set
+
+AddDefaultCharset utf-8
+
+
+
+# set the default language
+
+DefaultLanguage en-US
+
+
+
+## Custom Errors
+
+#ErrorDocument 404 http://omenka_mag/notfound
+
+#ErrorDocument 404 http://omenka_mag/notfound
+
+
+
+
+
+## Force file download
+
+AddType application/octet-stream .csv
+
+AddType application/octet-stream .xls
+
+AddType application/octet-stream .doc
+
+AddType application/octet-stream .avi
+
+AddType application/octet-stream .mpg
+
+AddType application/octet-stream .mov
+
+AddType application/octet-stream .mp3
+
+AddType application/octet-stream .mp4
+
+AddType application/octet-stream .pdf
+
+AddType application/octet-stream .txt
+
+AddType application/octet-stream .doc
+
+AddType application/octet-stream .docx
+
+AddType application/octet-stream .ppt
+
+AddType application/octet-stream .jpg
+
+AddType application/octet-stream .jpeg
+
+AddType application/octet-stream .gif
+
+AddType application/octet-stream .png
+
+
+
+
+
+RewriteEngine On
+
+
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(epp|dashboard)/([\w]+)$ /$1/$2.php [L,QSA]
+
+RewriteRule ^(epp|dashboard)/([\w]+/)$ /$1/$2.php [L,QSA]
+
+RewriteRule ^(epp|dashboard)/([\w]+)/(.+)$ /$1/$2.php?ql=$3 [L,QSA]
+
+
+
+
+
+#redirect to pages without .php extension
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+
+#Rewrite URL for specific pages
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^post/([^/]+)$ post.php?opt=$1 [L,QSA]
+
+RewriteRule ^category/([^/]+)$ category.php?opt=$1 [L,QSA]
+
+#RewriteRule ^post/([^/]+)/$ post.php?opt=$1 [L,QSA]
+
+RewriteRule ^item/([^/]+)/([^/]+)$ item.php?id=$1 [L,QSA]
+
+RewriteRule ^artist/([^/]+)$ artist.php?opt=$1 [L,QSA]
+
+#RewriteRule ^artist/([^/]+)/$ artist.php?opt=$1 [L,QSA]
+
+
+
+
+
+
+
+#http://localhost/sna_national/
+
+
+
+#CheckSpelling On
+
+
+
+
+
+
+
+
+
+
+
